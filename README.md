@@ -7,12 +7,12 @@ Sample
 ----
 ```javascript
 // When use something with 20% probability.
-if( Adcontroller().probability(20) ) {
+if( AdController().probability(20) ) {
     // something
 }
 
 // When use something simple mobile detection.
-if( Adcontroller().isMobile() ) {
+if( AdController().isMobile() ) {
     // something
 }
 ```
