@@ -15,11 +15,19 @@ if( AdController().probability(20) ) {
 if( AdController().isMobile() ) {
     // something
 }
+
+// Get URL query string parameters.
+// ex) example.com?utm_source=google&utm_medium=cpc
+var queryString = AdController().getParams();
+if ( queryString ) {
+    var utm_source = queryString.utm_source;
+    var utm_medium = queryString.utm_medium;
+    // somthing
+}
 ```
 
 Todo
 ----
 - Frequency capping.
-- Query string detection.
 - Adblock detection.
 - Data setter and getter with cookie and localstroage.
