@@ -24,10 +24,23 @@ if ( queryString ) {
     var utm_medium = queryString.utm_medium;
     // somthing
 }
+
+// Cache
+var c = AdController().cache;
+c.setItem("test-key-1", "test-value-1"); // Set cookie & localstorage
+c.setCookie("test-key-2", "test-value-2"); // Set cookie
+c.setLocalStorage("test-key-3", "test-value-3"); // Set localstorage
+
+c.getItem("test-key-1"); // Get cookie & localstorage
+c.getCookie("test-key-2"); // Get cookie
+c.getLocalStorage("test-key-3"); // Get localstorage
+
+c.removeItem("test-key-1"); // Remove cookie & localstorage
+c.removeCookie("test-key-2"); // Remove cookie
+c.removeLocalStorage("test-key-3"); // Remove localstorage
 ```
 
 Todo
 ----
 - Frequency capping.
 - Adblock detection.
-- Data setter and getter with cookie and localstroage.
