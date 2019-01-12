@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
   return {
     devtool: IS_PRODCUTION ? 'none' : 'source-map',
     entry: {
-      'adcontroller':['./src/init.js'],
+      'adcontroller':'./src/init.js',
     },
     output: {
       path: IS_PRODCUTION ? path.join(__dirname, 'build') : path.join(__dirname, 'dist'),
