@@ -108,10 +108,42 @@ module.exports = AdController = ()=>{
         }
     };
 
+    const frequency = (key, displayNum, seconds) => {
+        let dpn = Number(displayNum);
+        let sec = Number(seconds);
+        let now = new Date().getTime();
+        let exp = now + sec*1000;
+
+        let g = decodeURIComponent(cache.getItem(key));
+        let r = g.split("|");
+        let d = Number(r[0]);
+        let e = Number(r[1]);
+
+        if ( g == null || g == undefined || g == '' || isNaN(d) || isNaN(e) ) {
+            cache.setItem(key, 1 + '|' + exp);
+            return true;
+        }
+
+        if ( d >= dpn ) {
+            let cc = dpn;
+            let ce = e;
+            if ( e < now ) {
+                cc = 0;
+                ce = exp;
+            }
+            cache.setItem(key, cc + '|' + ce);
+            return false;
+        }
+
+        cache.setItem(key, d+1 + '|' + e);
+        return true;
+    };
+
     return {
         probability : probability,
         isMobile : isMobile,
         getParams : getParams,
-        cache : cache
+        cache : cache,
+        frequency : frequency
     };
 };

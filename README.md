@@ -22,7 +22,7 @@ var queryString = AdController().getParams();
 if ( queryString ) {
     var utm_source = queryString.utm_source;
     var utm_medium = queryString.utm_medium;
-    // somthing
+    // something
 }
 
 // Cache
@@ -38,9 +38,14 @@ c.getLocalStorage("test-key-3"); // Get localstorage
 c.removeItem("test-key-1"); // Remove cookie & localstorage
 c.removeCookie("test-key-2"); // Remove cookie
 c.removeLocalStorage("test-key-3"); // Remove localstorage
+
+// Frequency
+if ( AdController().frequency('test-ad-1', 3, 60) ) {
+    // Show 'test-ad-1' 3 times in 60 sec.
+}
 ```
 
 Todo
 ----
-- Frequency capping.
+- Plugin for "vue.js" and "react.js".
 - Adblock detection.
