@@ -43,9 +43,20 @@ c.removeLocalStorage("test-key-3"); // Remove localstorage
 if ( AdController().frequency('test-ad-1', 3, 60) ) {
     // Show 'test-ad-1' 3 times in 60 sec.
 }
+
+// Timetable
+// Setting the timetable in 1-hour increments.
+if ( AdController().timetable([0, 0, 0, 0, 0, 1<<22 | 1<<23, 0, 0]) ) {
+    // On Friday at 22h, 23h
+}
+
+if ( AdController().timetable(16777215, 0, 0, 0, 0, 0, 16777215) ) {
+    // On Sunday and Saturday at every time.
+}
 ```
 
 Todo
 ----
+- Unit test. (JEST)
 - Plugin for "vue.js" and "react.js".
 - Adblock detection.

@@ -139,11 +139,21 @@ module.exports = AdController = ()=>{
         return true;
     };
 
+    const timetable = (o) => {
+        let n = new Date();
+        // 0 = sunday
+        if ( 1 << n.getHours() & o[n.getDay()] ) {
+            return true;
+        }
+        return false;
+    };
+
     return {
         probability : probability,
         isMobile : isMobile,
         getParams : getParams,
         cache : cache,
-        frequency : frequency
+        frequency : frequency,
+        timetable : timetable,
     };
 };
